@@ -4,6 +4,8 @@ import '@testing-library/jest-dom';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { Signup } from '../Pages/Signup';
+import { store } from '../Redux/store/store'
+import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
 
 describe('Testando se os elemntos possuem na tela de "Signup"', () => {
@@ -12,8 +14,10 @@ describe('Testando se os elemntos possuem na tela de "Signup"', () => {
     history.push('/signup');
     render(
       <Router location={history.location} navigator={history}>
-        <Signup />
-      </Router>
+        <Provider store={store}>
+          <Signup />
+        </Provider>
+      </Router>,
     );
 
     const TitleElement = screen.getByText('Organize');
@@ -29,8 +33,10 @@ describe('Testando se os elemntos possuem na tela de "Signup"', () => {
     history.push('/signup');
     render(
       <Router location={history.location} navigator={history}>
+      <Provider store={store}>
         <Signup />
-      </Router>
+      </Provider>
+    </Router>,
     );
 
     const linkButtonBack = screen.getByRole('link', { name: 'Voltar' });
@@ -44,8 +50,10 @@ describe('Testando se os elemntos possuem na tela de "Signup"', () => {
     history.push('/signup');
     render(
       <Router location={history.location} navigator={history}>
-        <Signup />
-      </Router>
+        <Provider store={store}>
+          <Signup />
+        </Provider>
+      </Router>,
     );
 
     const linkButtonBack = screen.getByRole('link', { name: 'Começar' });

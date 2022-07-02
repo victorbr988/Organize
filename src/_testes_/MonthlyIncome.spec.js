@@ -5,6 +5,8 @@ import '../helpers/globalObserver';
 import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { ModalMonthlyIncome } from '../Pages/MonthlyIncome';
+import { store } from '../Redux/store/store'
+import { Provider } from 'react-redux';
 import userEvent from '@testing-library/user-event';
 
 describe('Testando se os elemntos possuem na tela de "monthly-income"', () => {
@@ -13,8 +15,10 @@ describe('Testando se os elemntos possuem na tela de "monthly-income"', () => {
     history.push('/monthly-income');
     render(
       <Router location={history.location} navigator={history}>
-        <ModalMonthlyIncome />
-      </Router>
+        <Provider store={store}>
+          <ModalMonthlyIncome />
+        </Provider>
+      </Router>,
     );
 
     const linkButtonAdd = screen.getByRole('button', { name: 'Adicionar Renda mensal' });
@@ -26,8 +30,10 @@ describe('Testando se os elemntos possuem na tela de "monthly-income"', () => {
     history.push('/monthly-income');
     render(
       <Router location={history.location} navigator={history}>
-        <ModalMonthlyIncome />
-      </Router>
+        <Provider store={store}>
+          <ModalMonthlyIncome />
+        </Provider>
+      </Router>,
     );
     const linkButtonAdd = screen.getByRole('button', { name: 'Adicionar Renda mensal' });
 
@@ -41,8 +47,10 @@ describe('Testando se os elemntos possuem na tela de "monthly-income"', () => {
     history.push('/monthly-income');
     render(
       <Router location={history.location} navigator={history}>
-        <ModalMonthlyIncome />
-      </Router>
+        <Provider store={store}>
+          <ModalMonthlyIncome />
+        </Provider>
+      </Router>,
     );
     const linkButtonAdd = screen.getByRole('button', { name: 'Adicionar Renda mensal' });
 
@@ -56,8 +64,10 @@ describe('Testando se os elemntos possuem na tela de "monthly-income"', () => {
     history.push('/monthly-income');
     render(
       <Router location={history.location} navigator={history}>
-        <ModalMonthlyIncome />
-      </Router>
+        <Provider store={store}>
+          <ModalMonthlyIncome />
+        </Provider>
+      </Router>,
     );
     const linkButtonAdd = screen.getByRole('button', { name: 'Adicionar Renda mensal' });
     

@@ -5,13 +5,17 @@ import { Router } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import App from '../App';
 import userEvent from '@testing-library/user-event';
+import { store } from '../Redux/store/store'
+import { Provider } from 'react-redux';
 
 describe('Testando se os elemntos possuem na tela de "App"', () => {
   test('testa se os elementos são renderizados na tela', () => {
     const history = createMemoryHistory()
     render(
       <Router location={history.location} navigator={history}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </Router>,
     )
     const linkElement = screen.getByText('Organize');
@@ -26,7 +30,9 @@ describe('Testando se os elemntos possuem na tela de "App"', () => {
     const history = createMemoryHistory()
     render(
       <Router location={history.location} navigator={history}>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </Router>,
     )
     
