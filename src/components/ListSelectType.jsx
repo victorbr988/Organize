@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 // import { useDispatch } from 'react-redux'
@@ -8,13 +8,15 @@ const people = [{ name: 'Despesa' }, { name: 'Lucro' }];
 export const ListSelectType = ({ setTransactionData, transactionData }) => {
   const [selected, setSelected] = useState(people[0]);
 
-  useEffect(() => {
-    setTransactionData({ ...transactionData, type: selected.name });
-  }, [selected]);
+  function handleChangeType({name}) {
+    setSelected({name})
+    setTransactionData({ ...transactionData, type: name });
+  }
+    
 
   return (
     <div className="mt-4">
-      <Listbox value={selected} onChange={setSelected}>
+      <Listbox value={selected} onChange={handleChangeType}>
         <div className=" mt-1">
           <Listbox.Button className="w-full justify-between flex cursor-default rounded-lg bg-gray-200 py-2 pl-3  shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="block truncate">{selected.name}</span>

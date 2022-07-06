@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import { Listbox, Transition } from '@headlessui/react';
 import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 // import { useDispatch } from 'react-redux'
@@ -14,15 +14,14 @@ const people = [
 export const ListSelectCategory = ({ setTransactionData, transactionData }) => {
   const [select, setSelected] = useState(people[0]);
   
-  useEffect(() => {
-    return setTransactionData({ ...transactionData, category: select.name })
-  }, [select])
+  function handleChangeCategory({name}) {
+    setSelected({name})
+    setTransactionData({ ...transactionData, category: name })
+  }
   
-  
-
   return (
     <div className="mt-4">
-      <Listbox value={select} onChange={setSelected} className="w-full">
+      <Listbox value={select} onChange={handleChangeCategory} className="w-full">
         <div className=" w-full mt-1">
           <Listbox.Button className="w-full flex justify-between pr-3 cursor-default rounded-lg bg-gray-200 py-2 pl-3 shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
             <span className="flex truncate">{select.name}</span>
