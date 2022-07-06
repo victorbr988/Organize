@@ -1,8 +1,8 @@
 import { ButtonEnter } from '../components/ButtonEnter'
 export const Home = () => {
   return (
-    <div className="background min-h-screen">
-      <div className="bg-black/30 min-h-screen">
+    <div className="background sm:bg-none min-h-screen">
+      <div className=" bg-black/50 min-h-screen">
         <header className="flex ">
           <h2 className="text-3xl text-white w-screen h-40 flex items-end justify-center">Organize</h2>
         </header>

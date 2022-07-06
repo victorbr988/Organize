@@ -7,6 +7,27 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+/* https://pt.stackoverflow.com/questions/335375/abrir-calend%C3%A1rio-do-input-type-month-ao-clicar-em-qualquer-parte-do-campo*/
+input[type="date"]::-webkit-calendar-picker-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: auto;
+  height: auto;
+  color: transparent;
+  background: transparent;
+}
+input[type="date"] {
+  position: relative;
+}
+
+input[type="date"]:after {
+  content: "\25BC"; 
+  color: #555;
+  padding: 0 5px;
+}
 
 @layer components {
   .buttonGo {
