@@ -1,14 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { v4 } from 'uuid';
 
-const transaction = {
-  id: v4(),
-  values: 0,
-  type: '',
-  date: '',
-  description: '',
-  category: '',
-};
+const transaction = [];
 
 
 export const userTransaction = createSlice({
@@ -16,10 +8,7 @@ export const userTransaction = createSlice({
   initialState: transaction,
   reducers: {
     setValue: (state, action) => {
-      return {
-        ...state,
-        ...action.payload
-      }
+      return [...state, {...action.payload}]
     },
   },
 });
