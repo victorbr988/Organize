@@ -1,22 +1,25 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { setMoney } from '../Redux/slices/initialMoney'
 
 export const ModalMonthlyIncome = () => {
   const [isOpen, setIsOpen] = useState(true)
-  // const [value, setValue] = useState('')
+  const [value, setValue] = useState(0)
+  const dispatch = useDispatch()
 
   function closeModal() {
-    setIsOpen(false)
+    dispatch(setMoney(value))
   }
 
   function openModal() {
     setIsOpen(true)
   }
 
-  // function sendIncome({target}) {
-  //   setValue(target.value)
-  // }
+  function sendIncome({target: {value}}) {
+    setValue(value)
+  }
 
   return (
     <>
@@ -64,8 +67,9 @@ export const ModalMonthlyIncome = () => {
                   </Dialog.Title>
                   <div className="mt-2">
                     <input
-                      // onChange={sendIncome}
-                      type="text"
+                      onChange={sendIncome}
+                      value={value}
+                      type="number"
                       placeholder="Ex: R$ 2,000.00"
                       className=" outline-none p-1 focus:border-[#1E293B] text-lg border-b-2 w-full"
                     />
