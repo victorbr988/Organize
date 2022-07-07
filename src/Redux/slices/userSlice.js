@@ -4,7 +4,6 @@ import { v4 } from 'uuid';
 const loginUser = {
   id: v4(),
   name: '',
-  password: '',
 };
 
 export const userData = createSlice({
@@ -14,11 +13,8 @@ export const userData = createSlice({
     setName: (state, action) => {
       state.name = action.payload;
     },
-    setPassword: (state, action) => {
-      state.password = action.payload;
-    },
   },
 });
 
-export const { setName, setPassword } = userData.actions;
+export const { setName } = userData.actions;
 export default userData.reducer;
