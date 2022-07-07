@@ -39,6 +39,7 @@ export const TransactionsHome = ({ setModalAdd, modalAdd }) => {
             </CardTransacton>
             )
           })
+          
         }
       </main>
     </div>
