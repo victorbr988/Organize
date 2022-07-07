@@ -3,8 +3,6 @@ import { FiX } from 'react-icons/fi';
 import { FiBarChart } from 'react-icons/fi';
 
 export const Header = ({modalOpen, setModalOpen}) => {
-  
-
   return (
     <header className='bg-[#6EE7B7] flex items-center h-14'>
       <div className='flex justify-between flex-1 mx-2 items-center'>

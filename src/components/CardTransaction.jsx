@@ -8,7 +8,7 @@ export const CardTransacton = ({children, name, value}) => {
         </h2>
         <div>
           <h2 className='text-[#1E293B]'>{name}</h2>
-          <h2>{value}</h2>
+          <h2>{Number(value).toLocaleString('pt-br', { style: 'currency', currency: 'BRL' })}</h2>
         </div>
         <button type='button' className='text-[#1E293B]'>Detalhes</button>
       </div>

@@ -5,10 +5,11 @@ import { CheckIcon, SelectorIcon } from '@heroicons/react/solid';
 
 const people = [
   { name: 'Alimentação' },
-  { name: 'Despesas Caseiras' },
+  { name: 'Aluguel' },
   { name: 'Transporte' },
   { name: 'Lazer' },
   { name: 'Saúde' },
+  { name: 'Beleza' },
 ];
 
 export const ListSelectCategory = ({ setTransactionData, transactionData }) => {
